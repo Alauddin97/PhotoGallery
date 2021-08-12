@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: "Lato", sans-serif;
+    }
+    
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #e00000;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 99;
+    }
+    
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+        color: #e00000;
+        background-color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    
+    .header {
+        padding: 10px;
+    }
+    
+    .flex {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .leftnav {
+        height: 100vh;
+        width: fit-content;
+        background-color: #111;
+        color: #eee;
+        padding: 0 15px;
+    }
+    
+    .leftnav a {
+        color: #eee;
+    }
+    
+    .search-div {
+        width: 97%;
+        padding: 20px;
+        background-color: gainsboro;
+    }
+    
+    .input-search {
+        background-color: white;
+        width: fit-content;
+        border-radius: 10px;
+        padding: 8px;
+    }
+    
+    input[type=text]:hover {
+        border: none;
+    }
+    
+    input[type=text]:active {
+        border: none;
+    }
+    
+    input[type=text]:focus {
+        border: none;
+    }
+    
+    input:focus {
+        outline: none;
+    }
+    
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+    /*---------------slider------------------------- */
+    
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    .owl-stage {
+        padding: 10px;
+    }
+    
+    .slider {
+        max-width: 1140px;
+        display: flex;
+    }
+    
+    .slider .card {
+        flex: 1;
+        margin: 0 10px;
+        background: #fff;
+        box-shadow: -10px 0px 10px 6px #888888;
+    }
+    
+    .slider .card .img {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .slider .card .img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .slider .card .content {
+        padding: 10px 20px;
+    }
+    
+    .card .content .title {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    
+    .card .content .sub-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #e74c3c;
+        line-height: 20px;
+    }
+    
+    .card .content p {
+        text-align: justify;
+        margin: 10px 0;
+    }
+    
+    .card .content .btn {
+        display: block;
+        text-align: left;
+        margin: 10px 0;
+    }
+    
+    .card .content .btn button {
+        background: #e74c3c;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        padding: 5px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    
+    .card .content .btn button:hover {
+        transform: scale(0.9);
+    }
+    
+    .slider a {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="background-color: #e00000;">&times;</a>
+        <a href="#"><i class="fa fa-user" style="font-size:25px;"></i>&nbsp;&nbsp;Login</a>
+        <a href="#"><i class="fa fa-search" style="font-size:25px;"></i>&nbsp;&nbsp;Search</a>
+        <a href="#"><i class="fa fa-home" style="font-size:25px;"></i>&nbsp;&nbsp;Home</a>
+        <a href="#"><i class="fa fa-star" style="font-size:25px;"></i>&nbsp;&nbsp;Star</a>
+        <a href="#"><i class="fa fa-music" style="font-size:25px;"></i>&nbsp;&nbsp;Music</a>
+        <a href="#"><i class="fa fa-film" style="font-size:25px;"></i>&nbsp;&nbsp;Film</a>
+    </div>
+    <div class="flex">
+        <div class="leftnav">
+            <div style="margin-top: 30vh;">
+                <a href="#"><i class="fa fa-home" style="font-size:30px;"></i></a><br><br>
+                <a href="#"><i class="fa fa-star" style="font-size:30px;"></i></a><br><br>
+                <a href="#"><i class="fa fa-music" style="font-size:30px;"></i></a><br><br>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            </div>
+        </div>
+        <div style="width: 100%;">
+            <div class="search-div">
+                <div class="input-search">
+                    <i class="fa fa-search" style="font-size:25px;"></i><input type="text" style="border: none;padding-left: 5px;font-size: 18px;" placeholder="Search">
+                </div>
+            </div>
+            <div class="header">
+                <h2>Photo Gallery</h2>
+                <p>Click any album to display.</p>
+            </div>
+
+            <div class="slider owl-carousel">
+                <a href="javascript:void(0)" class="closebtn" onclick="album_select(1)">
+                    <div class="card">
+                        <div class="img">
+                            <img src="images/black.jpg" alt=""></div>
+                        <div class="content">
+                            <div class="title">
+                                Album 1</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="closebtn" onclick="album_select(2)">
+                    <div class="card">
+                        <div class="img">
+                            <img src="images/sports.jpg" alt=""></div>
+                        <div class="content">
+                            <div class="title">
+                                Album 2</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="closebtn" onclick="album_select(3)">
+                    <div class="card">
+                        <div class="img">
+                            <img src="images/universe.jpeg" alt=""></div>
+                        <div class="content">
+                            <div class="title">
+                                Album 3</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="slider owl-carousel" id="photo">
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/2.jfif" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/2.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 3</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/2.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 3</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="slider owl-carousel" id="album1" style="display: none;">
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/2.jfif" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/design/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 1-Photo 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider owl-carousel" id="album2" style="display: none;">
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/2.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/sports/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 2-Photo 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider owl-carousel" id="album3" style="display: none;">
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/1.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 1</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/2.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 2</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="images/universe/3.jpg" alt=""></div>
+                    <div class="content">
+                        <div class="title">
+                            Album 3-Photo 3</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        $(".slider").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 2000, //2000ms = 2s;
+            autoplayHoverPause: true,
+        });
+    </script>
+    <script>
+        function album_select(x) {
+            $('#photo').hide();
+            if (x == 1) {
+                $('#album1').show();
+                $('#album2').hide();
+                $('#album3').hide();
+            } else if (x == 2) {
+                $('#album1').hide();
+                $('#album2').show();
+                $('#album3').hide();
+            } else if (x == 3) {
+                $('#album1').hide();
+                $('#album2').hide();
+                $('#album3').show();
+            }
+        }
+    </script>
+</body>
+
+</html>
